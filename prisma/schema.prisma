@@ -1,0 +1,36 @@
+
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb+srv://shubhammalharraojagtap:123@cluster0.lrmyaok.mongodb.net/bloapp?retryWrites=true&w=majority&appName=Cluster0"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  email     String   @unique
+  name      String?
+  role      Role     @default(USER)
+  blogs     Blog[]
+}
+
+model Blog {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  published Boolean  @default(false)
+  title     String
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String   @db.ObjectId
+  content   String 
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+
