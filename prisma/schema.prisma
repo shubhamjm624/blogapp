@@ -1,7 +1,7 @@
 
 datasource db {
   provider = "mongodb"
-  url      = "mongodb+srv://shubhammalharraojagtap:123@cluster0.lrmyaok.mongodb.net/bloapp?retryWrites=true&w=majority&appName=Cluster0"
+  url = "mongodb+srv://shubhammalharraojagtap:123@cluster0.czwxnfy.mongodb.net/blowapp?retryWrites=true&w=majority&appName=Cluster0"
 }
 
 generator client {
